@@ -15,7 +15,6 @@ env = Environment(
 )
 template = env.get_template('template.html')
 
-# пишем код для получения данных карточки
 skills = [
     "Стремительный прыжок",
     "Электрический выстрел",
@@ -110,7 +109,6 @@ for number_heroes in range(int(number_cards)):
         first_skill=selected_skills[0],
         second_skill=selected_skills[1],
         third_skill=selected_skills[2],
-        # пишем код, что добавляется к карточке
     )
 
     filename = f"characters/character_{number_heroes+1}.html"
