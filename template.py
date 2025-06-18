@@ -9,6 +9,17 @@ env = Environment(
 template = env.get_template('template.html')
 
 # пишем код для получения данных карточки
+skills = [
+    "Стремительный прыжок",
+    "Электрический выстрел",
+    "Ледяной удар",
+    "Стремительный удар",
+    "Кислотный взгляд",
+    "Тайный побег",
+    "Ледяной выстрел",
+    "Огненный заряд",
+]
+
 list_races = [
     'Люминары',
     'Кристаллы',
@@ -72,6 +83,7 @@ user_race = input('\nВыберите расу из предложенных:\n'
 user_class = input('\nВыберите класс из предложенных:\n' + '\n'.join(list_сlasses) + '\n')
 
 characteristics_selected_class = clases_base[user_class]
+selected_skills = random.sample(skills, 3)
 
 rendered_page = template.render(
     name=user_name.capitalize(),
@@ -85,6 +97,10 @@ rendered_page = template.render(
     temper=characteristics_selected_class['temper'],
 
     image=characteristics_selected_class['image_path'],
+
+    first_skill=selected_skills[0],
+    second_skill=selected_skills[1],
+    third_skill=selected_skills[2],
     # пишем код, что добавляется к карточке
 )
 
