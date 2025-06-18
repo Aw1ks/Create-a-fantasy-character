@@ -14,13 +14,24 @@ list_races = [
     'Терраги'
 ]
 
-user_name = input('Введите имя пользователя: ')
-user_race = input('Выберите расу из предложенных:\n' + '\n'.join(list_races) + '\n')
+list_сlasses = [
+    'Маг',
+    'Воин',
+    'Охотник',
+    'Ассасин',
+    'Бард'
+]
+
+user_name = input('\nВведите имя пользователя: ')
+user_race = input('\nВыберите расу из предложенных:\n' + '\n'.join(list_races) + '\n')
+user_class = input('\nВыберите класс из предложенных:\n' + '\n'.join(list_сlasses) + '\n')
+
 
 
 rendered_page = template.render(
     name=user_name.capitalize(),
-    race=user_race,
+    race=user_race.capitalize(),
+    character_class=user_class.capitalize(),
     # пишем код, что добавляется к карточке
 )
 
