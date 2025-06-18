@@ -1,6 +1,13 @@
 import random
+import os
+import shutil
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+
+characters_folder = 'characters'
+if os.path.exists(characters_folder):
+    shutil.rmtree(characters_folder)
+os.makedirs(characters_folder)
 
 env = Environment(
     loader=FileSystemLoader('.'),
@@ -78,31 +85,34 @@ clases_base = {
     },
 }
 
-user_name = input('\nВведите имя пользователя: ')
-user_race = input('\nВыберите расу из предложенных:\n' + '\n'.join(list_races) + '\n')
-user_class = input('\nВыберите класс из предложенных:\n' + '\n'.join(list_сlasses) + '\n')
+number_cards = input('Введите количество персонажей: ')
+for number_heroes in range(int(number_cards)):
+    user_name = input('\nВведите имя пользователя: ')
+    user_race = input('\n'.join(list_races) + '\nВыберите расу из предложенных: ')
+    user_class = input('\n'.join(list_сlasses) + '\nВыберите класс из предложенных: ')
 
-characteristics_selected_class = clases_base[user_class]
-selected_skills = random.sample(skills, 3)
+    characteristics_selected_class = clases_base[user_class]
+    selected_skills = random.sample(skills, 3)
 
-rendered_page = template.render(
-    name=user_name.capitalize(),
-    race=user_race.capitalize(),
-    character_class=user_class.capitalize(),
+    rendered_page = template.render(
+        name=user_name.capitalize(),
+        race=user_race.capitalize(),
+        character_class=user_class.capitalize(),
 
-    strength=characteristics_selected_class['strength'],
-    agility=characteristics_selected_class['agility'],
-    intelligence=characteristics_selected_class['intelligence'],
-    luck=characteristics_selected_class['luck'],
-    temper=characteristics_selected_class['temper'],
+        strength=characteristics_selected_class['strength'],
+        agility=characteristics_selected_class['agility'],
+        intelligence=characteristics_selected_class['intelligence'],
+        luck=characteristics_selected_class['luck'],
+        temper=characteristics_selected_class['temper'],
 
-    image=characteristics_selected_class['image_path'],
+        image=characteristics_selected_class['image_path'],
 
-    first_skill=selected_skills[0],
-    second_skill=selected_skills[1],
-    third_skill=selected_skills[2],
-    # пишем код, что добавляется к карточке
-)
+        first_skill=selected_skills[0],
+        second_skill=selected_skills[1],
+        third_skill=selected_skills[2],
+        # пишем код, что добавляется к карточке
+    )
 
-with open(f'index.html', 'w', encoding="utf8") as file:
-    file.write(rendered_page)
+    filename = f"characters/character_{number_heroes+1}.html"
+    with open(filename, 'w', encoding='utf8') as file:
+        file.write(rendered_page)
