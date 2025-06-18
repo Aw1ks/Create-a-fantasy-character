@@ -1,3 +1,5 @@
+import random
+
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 env = Environment(
@@ -32,6 +34,12 @@ rendered_page = template.render(
     name=user_name.capitalize(),
     race=user_race.capitalize(),
     character_class=user_class.capitalize(),
+
+    strength=random.randint(1, 3),
+    agility=random.randint(1, 3),
+    intelligence=random.randint(1, 3),
+    luck=random.randint(1, 3),
+    temper=random.randint(1, 3),
     # пишем код, что добавляется к карточке
 )
 
