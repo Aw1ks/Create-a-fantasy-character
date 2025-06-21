@@ -48,7 +48,7 @@ clases_base = {
         'agility': random.randint(1, 3),
         'luck': random.randint(1, 3),
         'temper': random.randint(1, 3),
-        'image_path': 'images/wizard.png',
+        'image_path': '../images/wizard.png',
     },
     'Воин': {
         'strength': 15,
@@ -56,7 +56,7 @@ clases_base = {
         'agility': random.randint(1, 3),
         'luck': random.randint(1, 3),
         'temper': random.randint(1, 3),
-        'image_path': 'images/warrior.png',
+        'image_path': '../images/warrior.png',
     },
     'Охотник': {
         'agility': 15,
@@ -64,7 +64,7 @@ clases_base = {
         'intelligence': random.randint(1, 3),
         'luck': random.randint(1, 3),
         'temper': random.randint(1, 3),
-        'image_path': 'images/archer.png',
+        'image_path': '../images/archer.png',
     },
     'Ассасин': {
         'luck': 15,
@@ -72,7 +72,7 @@ clases_base = {
         'agility': random.randint(1, 3),
         'intelligence': random.randint(1, 3),
         'temper': random.randint(1, 3),
-        'image_path': 'images/assasin.png',
+        'image_path': '../images/assasin.png',
     },
     'Бард': {
         'temper': 15,
@@ -80,7 +80,7 @@ clases_base = {
         'agility': random.randint(1, 3),
         'intelligence': random.randint(1, 3),
         'luck': random.randint(1, 3),
-        'image_path': 'images/bard.webp',
+        'image_path': '../images/bard.webp',
     },
 }
 
